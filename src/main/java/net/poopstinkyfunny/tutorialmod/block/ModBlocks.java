@@ -13,6 +13,7 @@ import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.intprovider.UniformIntProvider;
 import net.poopstinkyfunny.tutorialmod.TutorialMod;
+import net.poopstinkyfunny.tutorialmod.block.custom.MagicBlock;
 
 public class ModBlocks {
 
@@ -38,6 +39,10 @@ public class ModBlocks {
                     AbstractBlock.Settings.create().strength(4f).requiresTool()
                             .sounds(BlockSoundGroup.DEEPSLATE)));
 
+    // registers the magic block
+    public static final Block MAGIC_BLOCK = registerBlock("magic_block",
+            new MagicBlock(AbstractBlock.Settings.create().strength(1f).requiresTool()));
+
     //helper method for registering a block
     private static Block registerBlock(String name, Block block){
         registerBlockItem(name, block);
@@ -57,6 +62,10 @@ public class ModBlocks {
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.BUILDING_BLOCKS).register(entries -> {
             entries.add(ModBlocks.PINK_GARNET_BLOCK);
             entries.add(ModBlocks.RAW_PINK_GARNET_BLOCK);
+        });
+
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.FUNCTIONAL).register(entries -> {
+            entries.add(ModBlocks.MAGIC_BLOCK);
         });
 
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.NATURAL).register(entries -> {
