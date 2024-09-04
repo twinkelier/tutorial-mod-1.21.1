@@ -20,6 +20,7 @@ public class ModItemGroups {
                     .entries(((displayContext, entries) -> { //adds all the items that belong to this tab
                         entries.add(ModItems.PINK_GARNET);
                         entries.add(ModItems.RAW_PINK_GARNET);
+                        entries.add(ModItems.CHISEL);
                     })).build());
 
     // adds a tab to the creative inventory for the pink garnet blocks
